@@ -4,6 +4,7 @@
 
 #define ASCII_SIZE 256
 
+// Function to count the occurrences of characters in the file
 void countCharacters(const char *filename) {
     // Array to hold the count of each character
     int count[ASCII_SIZE] = {0};
@@ -19,7 +20,7 @@ void countCharacters(const char *filename) {
     while ((ch = fgetc(file)) != EOF) {
         ch = tolower(ch);
         if (ch >= 0 && ch < ASCII_SIZE) {
-             count[ch]++; 
+            count[ch]++;
         }
     }
 
@@ -32,4 +33,17 @@ void countCharacters(const char *filename) {
             printf("'%c' : %d\n", i, count[i]);
         }
     }
+}
+
+int main() {
+    char filename[100];
+
+    // Prompt the user to enter the filename
+    printf("Enter the filename: ");
+    scanf("%s", filename);
+
+    // Call the function to count characters in the file
+    countCharacters(filename);
+
+    return 0;
 }
